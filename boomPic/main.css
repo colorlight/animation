@@ -1,0 +1,11 @@
+.img-container{
+	width: 144px;
+	height: 90px;
+	position: relative;
+}
+
+.boom-pic{
+	width: 144px;
+	height: 90px;
+	position: absolute;
+}

@@ -1,0 +1,35 @@
+.content-wrapper{
+	width: 30%;
+	height: 500px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+
+}
+
+.scrollbar-track{
+	width: 50px;
+	height: 100%;
+	float: right;
+	background: #e1e7ea;
+	position: relative;
+}
+
+.scrollbar{
+	width: 48px;
+	border: 1px solid #ccc;
+	background: #f0f0f0;
+	height: 100px;
+	position: absolute;
+}
+
+.content-track{
+	position: relative;
+	margin-right: 50px;
+}
+
+.content{
+	position: absolute;
+}
+
+

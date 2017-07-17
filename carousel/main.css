@@ -1,0 +1,27 @@
+
+
+.item{
+	display: none !important;
+	transition: transform 0.6s ease-in-out !important;
+	position: absolute !important;
+}
+
+.active{
+	display: block !important;
+	transform: translate(0, 0) !important;
+}
+	
+.hide-in-left{
+	display: block !important;
+	transform: translate(-100%, 0) !important;
+}
+
+.hide-in-right{
+	display: block !important;
+	transform: translate(100%,0) !important;
+}
+
+.carousel-inner{
+	position: relative !important;
+	overflow: hidden !important;
+}

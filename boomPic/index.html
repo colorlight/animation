@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="img-contaniner">
+		<img class="boom-pic" src="iamge.jpg" alt="被放大的图片" >
+	</div>
+	
+	<script>
+		
+
+		$('.boom-pic').click(run);
+
+		function run(){
+			let boomPic = $('.boom-pic');
+			let boomScale = 2;
+
+			fn_scalePic(boomPic, boomScale);
+		}
+
+		function fn_scalePic(obj, scale){
+			let finalState = fn_computeFinalState(obj, scale);
+
+			fn_runAnimation(obj, finalState);
+
+			function fn_computeFinalState(obj, scale){
+				let finalState = {};
+				let stateAttr = ['width', 'height', 'top', 'left'];
+
+				for(let i = 0, attr; attr = stateAttr[i++];){
+					if(attr === 'top' || attr === 'left'){
+						finalState[attr] = Math.ceil(parseInt(obj.css(attr)) * (1 - scale) / 2 );
+					} else{
+						finalState[attr] = Math.ceil(parseInt(obj.css(attr)) * scale);	
+					}
+				}
+
+				return finalState;
+			}
+
+			function fn_runAnimation(obj, finalState){
+
+				let timer = setInterval(function(){
+					let stop = false;
+					for( let attr in finalState){
+						/*管理当前状态*/
+						let currState = parseInt(obj.css(attr));
+						let delta = Math.ceil((finalState[attr] - parseInt(currState)) / 8);
+						currState += delta;
+
+						/*render*/
+						obj.css(attr, currState);
+						
+						/*侦测结束条件*/
+						if( Math.abs(currState-finalState[attr]) <= 1){
+							stop = true;
+						}
+					}
+
+					if(stop){
+						clearInterval(timer);
+					}
+					
+				}, 30);
+			
+			}
+		}
+
+	</script>
+</body>
+</html>

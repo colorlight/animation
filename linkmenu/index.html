@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ol{
+      list-style-type: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .menulist{
+      float: left;
+    }
+    .foodlist{
+      float: left
+    }
+  </style>
+  <script src="../jquery.js"></script>
+</head>
+<body>
+  <ol class="menulist">
+    <li><a href="javascript:void(0)">1</a></li>
+    <li><a href="javascript:void(0)">2</a></li>
+    <li><a href="javascript:void(0)">3</a></li>
+  </ol>
+  <ol class="foodlist">
+    <li>food1</li>
+    <li>food2</li>
+    <li>food3</li>
+  </ol>
+  <script>
+    $('.menulist').click(function($event){
+      let domSelected = null
+      let domIndex = null;
+      if($event.target.nodeName.toUpperCase() === 'A'){
+      $('.menulist li a').each(function(index, ele){
+
+          if(ele === $event.target){
+              domSelected = ele;
+              domIndex = index;
+          }
+        
+      })
+    }
+      console.log(domIndex);
+    })
+  </script>
+</body>
+</html>

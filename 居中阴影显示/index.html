@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<style>
+		.float-div{
+			background: lightblue;
+			width: 100px;
+			height: 100px;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 100;
+			display: block;
+		}
+
+		.become-gray{
+			background-color: rgba(153,153,153, 0.2);
+		}
+		.backlayer{
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			left:0;
+			width: 100%;
+			height: 100%;
+			background-color: gray;
+			opacity: .3;
+		}
+	</style>
+</head>
+<body>
+	<button id="test">test</button>
+	<div class="pop-layer">
+	</div>
+	<div class="pop-box">sdfsdf</div>
+	<script>
+		$('.pop-box').css('display', 'none');
+		$('#test').click(function(){
+			$('.container').append('<p>ashfshdf</p>');
+			$('.pop-box').addClass('float-div');
+			$('.container').addClass('become-gray');
+			$('.pop-layer').addClass('backlayer');
+			$('.pop-box').css('display', 'block');
+		});
+	</script>
+</body>
+</html>
